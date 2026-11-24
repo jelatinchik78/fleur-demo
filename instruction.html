@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Как разместить сайт в интернете — инструкция</title>
+<meta name="robots" content="noindex">
+<style>
+  :root{
+    --ink:#141218;
+    --purple:#7c5cbf;
+    --purple-dark:#5a3f95;
+    --lav:#efe8fa;
+    --hair:#d8d3e0;
+    --muted:#6f6a7a;
+    --ok:#1f7a4d;
+    --warn:#a8560f;
+    --white:#fff;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:#faf8fd;
+    color:var(--ink);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  .page{max-width:820px;margin:0 auto;padding:40px 24px 80px}
+  header.doc{border-bottom:2px solid var(--ink);padding-bottom:24px;margin-bottom:8px}
+  .kicker{
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--purple-dark);font-weight:700;margin:0 0 12px
+  }
+  h1{font-size:32px;line-height:1.15;margin:0 0 14px;letter-spacing:-.02em}
+  .lead{margin:0;color:var(--muted);font-size:17px;max-width:62ch}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 20px;margin:18px 0 0;font-size:13px;color:var(--muted)}
+  .meta span{display:inline-flex;align-items:center;gap:6px}
+  .meta b{color:var(--ink);font-weight:600}
+
+  h2{
+    font-size:22px;line-height:1.3;margin:44px 0 12px;letter-spacing:-.01em;
+    padding-top:20px;border-top:1px solid var(--hair)
+  }
+  h2 .num{
+    display:inline-block;min-width:30px;color:var(--purple);
+    font-variant-numeric:tabular-nums
+  }
+  h3{font-size:17px;margin:26px 0 8px}
+  p{margin:0 0 14px}
+  ul,ol{margin:0 0 16px;padding-left:22px}
+  li{margin:0 0 8px}
+  li::marker{color:var(--purple)}
+  strong{font-weight:650}
+  code{
+    background:var(--lav);border-radius:4px;padding:2px 6px;
+    font:13px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;
+    white-space:nowrap
+  }
+  a{color:var(--purple-dark)}
+
+  .note{
+    background:var(--white);border:1px solid var(--hair);border-left:3px solid var(--purple);
+    border-radius:0 8px 8px 0;padding:16px 18px;margin:0 0 20px
+  }
+  .note p:last-child{margin-bottom:0}
+  .note b{display:block;margin-bottom:6px}
+
+  .steps{list-style:none;padding:0;counter-reset:s;margin:0 0 20px}
+  .steps>li{
+    counter-increment:s;position:relative;padding-left:44px;margin:0 0 18px
+  }
+  .steps>li::before{
+    content:counter(s);position:absolute;left:0;top:-2px;
+    width:30px;height:30px;border-radius:50%;
+    background:var(--ink);color:var(--white);
+    font-size:14px;font-weight:700;
+    display:flex;align-items:center;justify-content:center
+  }
+  .steps>li b{display:block;margin-bottom:4px}
+  .steps>li p{margin:0 0 6px}
+  .path{
+    display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--purple-dark);
+    background:var(--lav);border-radius:99px;padding:3px 10px;margin-bottom:10px
+  }
+
+  table{
+    width:100%;border-collapse:collapse;margin:0 0 20px;font-size:14.5px;
+    background:var(--white)
+  }
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--hair);vertical-align:top}
+  th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  tr:last-child td{border-bottom:none}
+  td:first-child{white-space:nowrap}
+  table.wrap td:first-child{white-space:normal}
+  .tbl-scroll{overflow-x:auto;margin-bottom:20px}
+  .tbl-scroll table{margin-bottom:0;min-width:560px}
+
+  .check{list-style:none;padding:0;margin:0 0 20px}
+  .check li{position:relative;padding-left:30px}
+  .check li::before{
+    content:"";position:absolute;left:0;top:5px;width:15px;height:15px;
+    border:1.5px solid var(--muted);border-radius:3px
+  }
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 20px}
+  .card{
+    background:var(--white);border:1px solid var(--hair);border-radius:10px;padding:16px 18px
+  }
+  .card h4{margin:0 0 8px;font-size:15px}
+  .card ul{margin:0;padding-left:18px;font-size:14.5px}
+  .card li:last-child{margin-bottom:0}
+  .card.bad{border-left:3px solid var(--warn)}
+  .card.good{border-left:3px solid var(--ok)}
+
+  footer.doc{
+    margin-top:52px;padding-top:20px;border-top:1px solid var(--hair);
+    font-size:13px;color:var(--muted)
+  }
+  footer.doc p{margin:0 0 6px}
+
+  @media (max-width:620px){
+    .page{padding:28px 18px 60px}
+    h1{font-size:26px}
+    h2{font-size:19px}
+    .cols{grid-template-columns:1fr}
+    td:first-child{white-space:normal}
+  }
+  @media print{
+    body{background:#fff;font-size:11.5pt}
+    .page{max-width:none;padding:0}
+    h2{page-break-after:avoid;margin-top:24pt}
+    .note,.card,table{page-break-inside:avoid}
+    a{color:inherit;text-decoration:none}
+    .steps>li{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc">
+  <p class="kicker">Инструкция для заказчика</p>
+  <h1>Как разместить сайт в интернете</h1>
+  <p class="lead">Сайт — это набор файлов. Чтобы он открывался по адресу, файлы нужно положить на хостинг и привязать к домену. Ниже два способа: бесплатный за 10 минут и обычный хостинг, если нужна почта на домене.</p>
+  <div class="meta">
+    <span><b>Время:</b> 10–30 минут</span>
+    <span><b>Стоимость:</b> от 0 до 7 000 ₽ в год</span>
+    <span><b>Программист:</b> не нужен</span>
+  </div>
+</header>
+
+<h2><span class="num">1.</span>Что у вас есть</h2>
+<p>Вы получили папку с файлами сайта (или архив <code>.zip</code> с ней):</p>
+<ul>
+  <li><code>index.html</code> — главная страница;</li>
+  <li><code>multi/</code> — остальные страницы, если сайт многостраничный;</li>
+  <li><code>img/</code> — папка с фотографиями.</li>
+</ul>
+<p>Это готовый сайт. Его не надо собирать, компилировать или устанавливать. Достаточно скопировать папку целиком в нужное место — как обычные файлы на флешке.</p>
+
+<div class="note">
+  <b>Главное правило</b>
+  <p>Файл <code>index.html</code> должен оказаться в «корне» сайта. Если он лежит в лишней вложенной папке, по адресу откроется пустая страница или список файлов. Это самая частая ошибка, и лечится она за минуту.</p>
+</div>
+
+<h2><span class="num">2.</span>Какой способ выбрать</h2>
+<div class="tbl-scroll">
+<table class="wrap">
+  <thead>
+    <tr><th>Способ</th><th>Цена</th><th>Время</th><th>Когда подходит</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Netlify</b></td>
+      <td>0 ₽ + домен</td>
+      <td>10 мин</td>
+      <td>Проще всего. Перетащили папку в браузер — сайт уже работает. HTTPS бесплатно.</td>
+    </tr>
+    <tr>
+      <td><b>Cloudflare Pages</b></td>
+      <td>0 ₽ + домен</td>
+      <td>15 мин</td>
+      <td>То же самое, быстрее работает в России, но интерфейс чуть сложнее.</td>
+    </tr>
+    <tr>
+      <td><b>Обычный хостинг</b><br>Beget, Timeweb</td>
+      <td>5 000–7 000 ₽ в год<br>вместе с доменом</td>
+      <td>30 мин</td>
+      <td>Если нужна почта на домене (<code>info@ваш-домен.ru</code>) и привычная панель управления.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Для сайта-визитки с фотографиями букетов бесплатного способа достаточно: нагрузок там нет, места хватает с запасом. Домен в любом случае покупается отдельно и принадлежит вам.</p>
+
+<h2><span class="num">3.</span>Домен</h2>
+<p>Домен — это адрес сайта, например <code>cvety-opt.ru</code>. Покупается у регистратора, стоит примерно 200–900 ₽ в год, продлевается раз в год.</p>
+<ul>
+  <li>Регистраторы: reg.ru, timeweb.ru, beget.com. Любой из них, разницы для сайта нет.</li>
+  <li>Берите зону <code>.ru</code> — для местного магазина она понятнее и дешевле.</li>
+  <li>Проверьте, что домен свободен. Если занят — добавьте город: <code>cvety-opt-revda.ru</code>, <code>cvetyopt66.ru</code>.</li>
+  <li>Домен оформляется на вас или на вашу организацию. Доступ к аккаунту регистратора держите у себя.</li>
+</ul>
+<p>При покупке вам будут предлагать дополнения: «раскрутку», «защиту от DDoS», «сайт в подарок», «почту на 5 ящиков», «SEO-пакет». Для статичного сайта ничего из этого не нужно. Отказывайтесь от всех галочек — оплачивайте только домен.</p>
+
+<h2><span class="num">4.</span>Способ А. Бесплатно: Netlify</h2>
+<span class="path">10 минут · 0 ₽</span>
+<ol class="steps">
+  <li>
+    <b>Откройте сайт сервиса</b>
+    <p>В браузере: <a href="https://app.netlify.com/drop">app.netlify.com/drop</a></p>
+  </li>
+  <li>
+    <b>Войдите в аккаунт</b>
+    <p>Проще всего через Google или GitHub. Если аккаунта нет — регистрация по почте занимает минуту. Бесплатного тарифа достаточно.</p>
+  </li>
+  <li>
+    <b>Перетащите папку с сайтом в окно браузера</b>
+    <p>Именно <strong>папку целиком</strong>, а не отдельные файлы внутри неё. Внутри папки должен лежать <code>index.html</code>.</p>
+    <p>Если у вас архив <code>.zip</code> — сначала распакуйте его правой кнопкой мыши → «Извлечь всё», и перетаскивайте получившуюся папку.</p>
+  </li>
+  <li>
+    <b>Дождитесь загрузки</b>
+    <p>Через 10–30 секунд появится адрес вида <code>random-name-123abc.netlify.app</code>. Сайт уже работает и открывается с телефона. Этот адрес можно сразу кому-то показать.</p>
+  </li>
+  <li>
+    <b>Переименуйте адрес (по желанию)</b>
+    <p>Site configuration → Change site name → введите <code>cvety-opt</code>. Получится <code>cvety-opt.netlify.app</code>.</p>
+  </li>
+  <li>
+    <b>Привяжите свой домен</b>
+    <p>Domain management → Add a domain → введите купленный домен. Сервис покажет DNS-записи: их нужно добавить в личном кабинете регистратора, в разделе «DNS-серверы» или «Управление зоной».</p>
+    <p>Обычно достаточно одной записи <code>CNAME</code> со значением вашего адреса <code>*.netlify.app</code> либо переключить NS-серверы на серверы Netlify — сервис подскажет оба варианта. Обновление занимает от 15 минут до 24 часов.</p>
+  </li>
+  <li>
+    <b>Проверьте HTTPS</b>
+    <p>Сертификат Let's Encrypt выпускается автоматически и бесплатно. В разделе Domain management → HTTPS должен появиться статус «Certificate is active». Если написано «Verify DNS configuration» — подождите, пока обновятся DNS.</p>
+  </li>
+</ol>
+
+<h2><span class="num">5.</span>Способ Б. Обычный хостинг: Beget или Timeweb</h2>
+<span class="path">30 минут · 5 000–7 000 ₽ в год</span>
+<ol class="steps">
+  <li>
+    <b>Купите хостинг</b>
+    <p>Начального тарифа хватит с большим запасом: Beget — «Blog», Timeweb — «Century». Ориентир: 400–800 ₽ в месяц, при оплате за год дешевле.</p>
+    <p>При заказе укажите домен, который купили. Если домен у того же провайдера — он привяжется автоматически.</p>
+  </li>
+  <li>
+    <b>Откройте файловый менеджер</b>
+    <p>В панели управления найдите раздел «Файловый менеджер» (может называться «Файлы»). Это обычный проводник в браузере: можно создавать папки, загружать и распаковывать архивы.</p>
+  </li>
+  <li>
+    <b>Зайдите в папку сайта</b>
+    <p>Она называется <code>public_html</code> (у Timeweb — <code>public_html</code>, у Beget — <code>public_html</code> внутри папки с именем домена). Именно сюда кладутся файлы сайта.</p>
+  </li>
+  <li>
+    <b>Загрузите файлы</b>
+    <p>Загрузите архив <code>.zip</code> и распакуйте его прямо в панели: правой кнопкой по файлу → «Распаковать». Либо загрузите файлы по одному, сохранив структуру папок.</p>
+    <p>После распаковки проверьте: <code>index.html</code> должен лежать <strong>прямо в</strong> <code>public_html</code>, а не в <code>public_html/сайт/index.html</code>.</p>
+  </li>
+  <li>
+    <b>Привяжите домен</b>
+    <p>Если домен куплен у другого регистратора — в его кабинете смените NS-серверы на серверы хостинга. Их адреса есть в письме после покупки хостинга и в разделе «Домены» панели. Обновление — до 24 часов.</p>
+  </li>
+  <li>
+    <b>Включите HTTPS</b>
+    <p>Раздел «SSL-сертификаты» → «Выпустить бесплатный Let's Encrypt» → выберите домен. Через 10–15 минут включите галочку «Перенаправлять на HTTPS», чтобы адрес всегда был с замком.</p>
+  </li>
+  <li>
+    <b>Проверьте сайт</b>
+    <p>Откройте <code>https://ваш-домен.ru</code> в браузере и на телефоне. Должна открыться главная страница с фотографиями.</p>
+  </li>
+</ol>
+
+<h2><span class="num">6.</span>Если что-то не работает</h2>
+<div class="tbl-scroll">
+<table class="wrap">
+  <thead>
+    <tr><th>Что видите</th><th>Причина</th><th>Что сделать</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Пустая белая страница или список файлов</td>
+      <td><code>index.html</code> нет в корне сайта</td>
+      <td>Перенесите <code>index.html</code> прямо в <code>public_html</code> (или в корень проекта на Netlify)</td>
+    </tr>
+    <tr>
+      <td>Ошибка 404</td>
+      <td>Файлы лежат в лишней вложенной папке</td>
+      <td>Войдите в папку, куда распаковали архив, выделите всё и перенесите на уровень выше</td>
+    </tr>
+    <tr>
+      <td>Сайт открылся, но без картинок</td>
+      <td>Не загрузилась папка <code>img</code> или изменился регистр букв в именах</td>
+      <td>Загрузите <code>img</code> целиком, имена файлов не переименовывайте</td>
+    </tr>
+    <tr>
+      <td>«Сайт не найден», «домен не привязан»</td>
+      <td>DNS ещё не обновились</td>
+      <td>Подождите до 24 часов, обычно 1–2 часа. Проверьте, что NS-серверы указаны верно</td>
+    </tr>
+    <tr>
+      <td>Открывается по <code>http</code>, но не по <code>https</code></td>
+      <td>Сертификат не выпущен</td>
+      <td>Выпустите Let's Encrypt в панели и включите перенаправление на HTTPS</td>
+    </tr>
+    <tr>
+      <td>Показывается старая версия страницы</td>
+      <td>Кэш браузера</td>
+      <td>Обновите страницу сочетанием <code>Ctrl</code> + <code>F5</code> или откройте в режиме инкогнито</td>
+    </tr>
+    <tr>
+      <td>На телефоне вёрстка «разъехалась»</td>
+      <td>Открыта не та версия файла</td>
+      <td>Напишите мне — проверю и исправлю</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2><span class="num">7.</span>Как обновлять сайт потом</h2>
+<p>Файлы принадлежат вам, поэтому менять содержимое можно без чьей-либо помощи.</p>
+<ul>
+  <li><b>Цены и тексты.</b> Откройте <code>index.html</code> в блокноте, найдите нужную строку, измените, сохраните и загрузите файл обратно.</li>
+  <li><b>Фотографии.</b> Загрузите новый снимок в <code>img</code> под тем же именем, что и старый — он заменится сам.</li>
+  <li><b>Netlify.</b> Перетащите папку заново в раздел Deploys → Drag and drop. Предыдущая версия сохранится, её можно вернуть.</li>
+  <li><b>Обычный хостинг.</b> Загрузите изменённые файлы в <code>public_html</code> с заменой.</li>
+</ul>
+
+<h2><span class="num">8.</span>Что не нужно</h2>
+<div class="cols">
+  <div class="card good">
+    <h4>Нужно</h4>
+    <ul>
+      <li>Домен</li>
+      <li>Хостинг или бесплатный статический сервис</li>
+      <li>Файлы сайта</li>
+    </ul>
+  </div>
+  <div class="card bad">
+    <h4>Не нужно</h4>
+    <ul>
+      <li>База данных</li>
+      <li>PHP, MySQL, панель с настройками сервера</li>
+      <li>Установка CMS и «движка»</li>
+      <li>Конструктор сайтов и подписка на него</li>
+      <li>Услуги «настройки и оптимизации» за отдельные деньги</li>
+    </ul>
+  </div>
+</div>
+
+<h2><span class="num">9.</span>Итоговый чек-лист</h2>
+<ul class="check">
+  <li>Домен куплен и оформлен на вас</li>
+  <li>Файлы сайта загружены, <code>index.html</code> лежит в корне</li>
+  <li>Сайт открывается по адресу с телефона и с компьютера</li>
+  <li>Фотографии на месте, ничего не «побилось»</li>
+  <li>Адрес начинается с <code>https://</code>, в строке браузера есть замок</li>
+  <li>Логин и пароль от регистратора и хостинга сохранены в надёжном месте</li>
+  <li>Срок продления домена и хостинга записан в календарь</li>
+</ul>
+
+<footer class="doc">
+  <p>Инструкция описывает размещение статического сайта. Названия разделов в панелях хостинга могут немного отличаться — ориентируйтесь на смысл, а не на точное слово.</p>
+  <p>Если на каком-то шаге что-то не получается — напишите, разберём вместе.</p>
+</footer>
+
+</div>
+</body>
+</html>
