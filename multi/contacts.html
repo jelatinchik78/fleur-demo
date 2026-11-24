@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Контакты — Флёр, Ревда</title>
+<meta name="description" content="Контакты студии флористики «Флёр» в Ревде: адрес, телефон, режим работы, форма заказа букета.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="appbar">
+  <div class="appbar-inner">
+    <a href="index.html" class="brand">
+      <span class="logo-icon"><span class="material-symbols-rounded">local_florist</span></span>
+      <b>Флёр</b>
+    </a>
+    <nav class="md-nav">
+      <a href="index.html">Главная</a>
+      <a href="flowers.html">Цветы</a>
+      <a href="bouquets.html">Букеты</a>
+      <a href="services.html">Услуги</a>
+      <a href="prices.html">Цены</a>
+      <a href="contacts.html" class="active">Контакты</a>
+    </nav>
+    <a href="tel:+79991234567" class="icon-btn filled" title="Позвонить"><span class="material-symbols-rounded">call</span></a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="chip-row">
+        <span class="chip primary"><span class="material-symbols-rounded">schedule</span>Ответим за 10 минут</span>
+        <span class="chip"><span class="material-symbols-rounded">local_parking</span>Парковка у входа</span>
+      </div>
+      <h1>Контакты</h1>
+      <p>Позвоните, напишите в соцсетях или заполните форму заказа — ответим в течение 10 минут в рабочее время.</p>
+      <div class="btn-row">
+        <a href="tel:+79991234567" class="btn filled"><span class="material-symbols-rounded">call</span>Позвонить</a>
+        <a href="#order" class="btn tonal">Форма заказа</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="../img/rose-carnation.jpg" alt="Букет из роз и гвоздик">
+    </div>
+  </div>
+</div>
+
+<section id="order">
+  <div class="container">
+    <div class="contacts-wrap">
+      <div class="contact-list">
+        <div class="contact-item">
+          <span class="material-symbols-rounded">location_on</span>
+          <div><b>Адрес студии</b>
+            <span class="v">ул. Чайковского, 19, Ревда, Свердловская область</span></div>
+        </div>
+        <div class="contact-item">
+          <span class="material-symbols-rounded">call</span>
+          <div><b>Телефон / мессенджеры</b>
+            <span class="v"><a href="tel:+79991234567">+7 (999) 123-45-67</a> — WhatsApp и Telegram на тот же номер</span></div>
+        </div>
+        <div class="contact-item">
+          <span class="material-symbols-rounded">chat</span>
+          <div><b>Соцсети</b>
+            <span class="v">VK: vk.com/fleur_revda</span></div>
+        </div>
+        <div class="contact-item">
+          <span class="material-symbols-rounded">schedule</span>
+          <div><b>Режим работы</b>
+            <span class="v">Пн–Сб: 9:00–20:00 · Вс: 10:00–18:00 · Доставка ежедневно 9:00–21:00</span></div>
+        </div>
+        <div class="contact-item">
+          <span class="material-symbols-rounded">mail</span>
+          <div><b>E-mail (опт и мероприятия)</b>
+            <span class="v">zakaz@fleur-revda.ru</span></div>
+        </div>
+        <div class="contact-item">
+          <span class="material-symbols-rounded">credit_card</span>
+          <div><b>Оплата</b>
+            <span class="v">Наличные, карты, перевод по номеру. Для юрлиц — по счёту с документами.</span></div>
+        </div>
+      </div>
+
+      <form class="order-form" onsubmit="alert('Спасибо! (демо-форма, заявка никуда не отправляется)');return false">
+        <h3>Форма заказа</h3>
+        <div class="field">
+          <label for="name">Ваше имя *</label>
+          <input id="name" type="text" placeholder="Анна" required>
+        </div>
+        <div class="field">
+          <label for="phone">Телефон *</label>
+          <input id="phone" type="tel" placeholder="+7 (___) ___-__-__" required>
+        </div>
+        <div class="field">
+          <label for="type">Тип заказа</label>
+          <select id="type">
+            <option>Букет в розницу</option>
+            <option>Цветы оптом (от 15 шт.)</option>
+            <option>Доставка цветов</option>
+            <option>Оформление мероприятия</option>
+            <option>Подписка на букеты</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="when">Когда нужна доставка</label>
+          <input id="when" type="text" placeholder="Например: 14 мая, к 15:00">
+        </div>
+        <div class="field">
+          <label for="comment">Комментарий</label>
+          <textarea id="comment" rows="3" placeholder="Повод, пожелания по цветам, бюджет, адрес доставки"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">
+          <span class="material-symbols-rounded">send</span>Отправить заявку
+        </button>
+        <p style="font-size:.78rem;color:var(--md-on-surface-variant);margin-top:12px">
+          Нажимая кнопку, вы соглашаетесь на обработку персональных данных. (Демо-форма.)
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="banner">
+  <h2>Как нас найти</h2>
+  <p>Студия находится на ул. Чайковского, 19 — в 5 минутах от центра Ревды. Есть парковка у входа. Мы отмечены на картах 2ГИС и Яндекс Карты.</p>
+  <div class="btn-row">
+    <a href="tel:+79991234567" class="btn filled"><span class="material-symbols-rounded">near_me</span>Построить маршрут</a>
+  </div>
+</div>
+
+<a href="tel:+79991234567" class="fab">
+  <span class="material-symbols-rounded">call</span><span class="txt">Заказать</span>
+</a>
+
+<footer>
+  <div class="container">
+    <div class="menu">
+      <a href="index.html">Главная</a>
+      <a href="flowers.html">Цветы</a>
+      <a href="bouquets.html">Букеты</a>
+      <a href="services.html">Услуги</a>
+      <a href="prices.html">Цены</a>
+      <a href="contacts.html">Контакты</a>
+    </div>
+    <div class="fin">
+      <span><b>Флёр — студия флористики</b> · ул. Чайковского, 19, Ревда</span>
+      <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+    </div>
+    <p class="demo-note">Демонстрационный макет для портфолио · фото: Wikimedia Commons · цены и контакты условные</p>
+  </div>
+</footer>
+
+<script>
+  const bar=document.querySelector('.appbar');
+  addEventListener('scroll',()=>bar.classList.toggle('scrolled',scrollY>8),{passive:true});
+</script>
+
+</body>
+</html>
